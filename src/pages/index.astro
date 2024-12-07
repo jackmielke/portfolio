@@ -1,0 +1,96 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import SocialLink from '../components/SocialLink.astro';
+import Navigation from '../components/Navigation.astro';
+
+const projects = [
+  {
+    title: 'oxprep.com',
+    url: 'http://oxprep.com',
+    description: 'AI powered app for assisting college admissions into Oxford and Cambridge'
+  },
+  {
+    title: 'Bitcoin Explained',
+    url: 'https://bitcoin-explained-by.replit.app/',
+    description: 'A creative exploration of Bitcoin\'s proof of work through a beautiful web experience'
+  },
+  {
+    title: 'Think Different',
+    url: 'http://thinkindifferent.wtf',
+    description: 'An artistic web experience dedicated to the crazy ones who Think Different'
+  },
+  {
+    title: 'Quote Museum',
+    url: 'https://quotemuseum.site/',
+    description: 'A journey across the past 50 years, with one epic quote from each year'
+  }
+];
+
+const favoriteSites = [
+  { title: 'Jacky Zhao', url: 'https://jzhao.xyz/' },
+  { title: 'Donald Jewkes', url: 'https://donaldjewkes.com/' },
+  { title: 'Steven Ten Holder', url: 'https://www.steventenholder.com/' },
+  { title: 'Michael DeMarco', url: 'https://michaeldemar.co/' },
+  { title: 'Arjun Khemani', url: 'https://www.arjunkhemani.com/' },
+  { title: 'Anson Yu', url: 'https://ansonyu.me/' }
+];
+---
+
+<Layout title="Jack Mielke">
+  <Navigation />
+  <main class="max-w-3xl mx-auto px-6 pt-28 pb-20">
+    <section id="about" class="mb-20" data-aos="fade-up">
+      <h1 class="text-5xl font-bold mb-4">Hey! I'm Jack</h1>
+      <p class="text-xl text-gray-300 mb-6">21 y/o in Thailand 📍</p>
+      <p class="text-lg text-gray-300">
+        I'm currently excited about popup communities, building 5+ apps per day with AI, and going all in on health.
+      </p>
+    </section>
+
+    <section id="projects" class="mb-20">
+      <h2 class="text-3xl font-bold mb-6" data-aos="fade-up">current projects 🧑🏼‍🍳</h2>
+      <div class="grid gap-4">
+        {projects.map(project => (
+          <ProjectCard {...project} />
+        ))}
+      </div>
+    </section>
+
+    <section id="writing" class="mb-20">
+      <h2 class="text-3xl font-bold mb-6" data-aos="fade-up">my writing</h2>
+      <a 
+        href="https://jackmielke.substack.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block text-lg hover:text-gray-300 transition-colors"
+        data-aos="fade-up"
+      >
+        jackmielke.substack.com
+      </a>
+    </section>
+
+    <section id="socials" class="mb-20">
+      <h2 class="text-3xl font-bold mb-6" data-aos="fade-up">socials 🫶🏼</h2>
+      <div>
+        <SocialLink platform="Twitter" url="https://x.com/mielke_jack" />
+        <SocialLink platform="Instagram" url="https://www.instagram.com/jackk_mielkee/" />
+      </div>
+    </section>
+
+    <section id="favorite-sites" class="mb-20">
+      <h2 class="text-3xl font-bold mb-6" data-aos="fade-up">some favorite personal sites</h2>
+      <div class="grid gap-4">
+        {favoriteSites.map(site => (
+          <ProjectCard title={site.title} url={site.url} />
+        ))}
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  section {
+    scroll-margin-top: 7rem;
+  }
+</style>
