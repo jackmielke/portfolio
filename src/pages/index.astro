@@ -6,7 +6,12 @@ import Navigation from '../components/Navigation.astro';
 
 const projects = [
   {
-    title: 'oxprep.com',
+    title: 'Flow Phangan',
+    url: 'https://flowphangan.com/',
+    description: 'A tropical paradise for builders in Thailand'
+  },
+  {
+    title: 'OxPrep',
     url: 'http://oxprep.com',
     description: 'AI powered app for assisting college admissions into Oxford and Cambridge'
   },
@@ -28,12 +33,8 @@ const projects = [
 ];
 
 const favoriteSites = [
-  { title: 'Jacky Zhao', url: 'https://jzhao.xyz/' },
-  { title: 'Donald Jewkes', url: 'https://donaldjewkes.com/' },
-  { title: 'Steven Ten Holder', url: 'https://www.steventenholder.com/' },
-  { title: 'Michael DeMarco', url: 'https://michaeldemar.co/' },
-  { title: 'Arjun Khemani', url: 'https://www.arjunkhemani.com/' },
-  { title: 'Anson Yu', url: 'https://ansonyu.me/' }
+  { title: 'My Resume', url: 'https://jackmielke.notion.site/Jack-Mielke-f5229540843445c591b0ffbd4d3f8ba5?pvs=4' },
+  { title: 'Popup Cities Article', url: 'https://open.substack.com/pub/jackmielke/p/life-at-the-edge?r=nfyht&utm_medium=ios' }
 ];
 ---
 
@@ -41,11 +42,19 @@ const favoriteSites = [
   <Navigation />
   <main class="max-w-3xl mx-auto px-6 pt-28 pb-20">
     <section id="about" class="mb-20" data-aos="fade-up">
-      <h1 class="text-5xl font-bold mb-4">Hey! I'm Jack</h1>
-      <p class="text-xl text-gray-300 mb-6">21 y/o in Thailand 📍</p>
-      <p class="text-lg text-gray-300">
-        I'm currently excited about popup communities, building 5+ apps per day with AI, and going all in on health.
-      </p>
+      <div class="flex flex-col md:flex-row items-center gap-8 mb-8 hover:transform hover:scale-[1.02] transition-all duration-300">
+        <div class="flex-1">
+          <h1 class="text-5xl font-bold mb-4">Hey! I'm Jack</h1>
+          <p class="text-lg text-gray-300">
+            I'm currently excited about <a href="https://open.substack.com/pub/jackmielke/p/life-at-the-edge?r=nfyht&utm_medium=ios" class="underline hover:text-white transition-colors duration-200">popup cities</a>, building 5+ apps a day with AI, and going all in on health. 🌞
+          </p>
+        </div>
+        <img 
+          src="/Muay Thai Jack.jpg" 
+          alt="Jack Mielke" 
+          class="w-48 h-48 rounded-full object-cover shadow-lg hover:shadow-2xl transition-shadow duration-300"
+        />
+      </div>
     </section>
 
     <section id="projects" class="mb-20">
@@ -63,27 +72,37 @@ const favoriteSites = [
         href="https://jackmielke.substack.com/"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-block text-lg hover:text-gray-300 transition-colors"
+        class="inline-block text-lg hover:text-gray-300 transition-colors group"
         data-aos="fade-up"
       >
-        jackmielke.substack.com
+        where I share what I'm up to, what I'm learning, and more <span class="group-hover:translate-x-1 inline-block transition-transform duration-200">:)</span>
       </a>
     </section>
 
     <section id="socials" class="mb-20">
       <h2 class="text-3xl font-bold mb-6" data-aos="fade-up">socials 🫶🏼</h2>
-      <div>
+      <div class="space-y-2">
         <SocialLink platform="Twitter" url="https://x.com/mielke_jack" />
         <SocialLink platform="Instagram" url="https://www.instagram.com/jackk_mielkee/" />
+        <SocialLink platform="Substack" url="https://jackmielke.substack.com/" />
       </div>
     </section>
 
-    <section id="favorite-sites" class="mb-20">
-      <h2 class="text-3xl font-bold mb-6" data-aos="fade-up">some favorite personal sites</h2>
-      <div class="grid gap-4">
-        {favoriteSites.map(site => (
-          <ProjectCard title={site.title} url={site.url} />
-        ))}
+    <section id="work" class="mb-20">
+      <h2 class="text-3xl font-bold mb-6" data-aos="fade-up">work</h2>
+      <div class="space-y-4">
+        <a 
+          href="https://jackmielke.notion.site/Jack-Mielke-f5229540843445c591b0ffbd4d3f8ba5?pvs=4"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block text-lg hover:text-gray-300 transition-colors group"
+          data-aos="fade-up"
+        >
+          View my complete resume <span class="group-hover:translate-x-1 inline-block transition-transform duration-200">→</span>
+        </a>
+        <p class="text-lg text-gray-300" data-aos="fade-up">
+          For consulting, web development work, or any specific questions, feel free to email me at <a href="mailto:jackcmielke@gmail.com" class="underline hover:text-white transition-colors duration-200">jackcmielke@gmail.com</a>
+        </p>
       </div>
     </section>
   </main>
@@ -92,5 +111,18 @@ const favoriteSites = [
 <style>
   section {
     scroll-margin-top: 7rem;
+  }
+
+  @keyframes subtle-float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+
+  img {
+    animation: subtle-float 6s ease-in-out infinite;
   }
 </style>
