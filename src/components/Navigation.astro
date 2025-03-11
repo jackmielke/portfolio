@@ -6,7 +6,7 @@ const menuItems = [
 ];
 ---
 
-<div class="fixed top-0 left-0 right-0 z-50 px-6 py-4 backdrop-blur-sm bg-[#13151a]/50">
+<div class="fixed top-0 left-0 right-0 z-50 px-6 py-4 backdrop-blur-sm bg-[#0d1b1e]/70">
   <div class="max-w-3xl mx-auto flex justify-between items-center">
     <!-- Peace sign home button -->
     <a href="#" class="text-2xl hover:opacity-80 transition-opacity">✌️</a>
@@ -16,7 +16,7 @@ const menuItems = [
       {menuItems.map(item => (
         <a
           href={item.href}
-          class="text-sm text-gray-300 hover:text-white transition-colors duration-200"
+          class="text-sm text-[#e6d7c3]/80 hover:text-[#e6d7c3] transition-colors duration-200"
         >
           {item.label}
         </a>
@@ -27,7 +27,7 @@ const menuItems = [
     <div class="md:hidden">
       <button
         id="menuButton"
-        class="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-all duration-300"
+        class="p-2 rounded-lg bg-[#134e57]/30 hover:bg-[#134e57]/50 transition-all duration-300 border border-[#134e57]/20"
         aria-label="Toggle menu"
       >
         <svg
@@ -47,12 +47,12 @@ const menuItems = [
 
       <nav
         id="mobileMenu"
-        class="absolute right-4 top-16 w-48 py-2 bg-white/10 backdrop-blur-sm rounded-lg shadow-xl transform scale-0 opacity-0 transition-all duration-200 origin-top-right"
+        class="absolute right-4 top-16 w-48 py-2 bg-[#134e57]/30 backdrop-blur-sm rounded-lg shadow-xl transform scale-0 opacity-0 transition-all duration-200 origin-top-right border border-[#134e57]/20"
       >
         {menuItems.map(item => (
           <a
             href={item.href}
-            class="block px-4 py-2 text-sm hover:bg-white/20 transition-colors duration-200"
+            class="block px-4 py-2 text-sm text-[#e6d7c3]/80 hover:bg-[#134e57]/50 hover:text-[#e6d7c3] transition-colors duration-200"
           >
             {item.label}
           </a>
