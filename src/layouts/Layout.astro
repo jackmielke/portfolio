@@ -1,25 +1,33 @@
 ---
 interface Props {
   title: string;
+  description?: string;
+  image?: string;
 }
 
-const { title } = Astro.props;
+const { 
+  title, 
+  description = "Jack Mielke - Creative Developer & AI Whisperer. Explore my projects, writing, and work.",
+  image = "https://jackmielke.com/og-image.jpg" 
+} = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Jack Mielke - Creative Developer & AI Whisperer. Explore my projects, writing, and work." />
+    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
     <meta name="author" content="Jack Mielke" />
     <meta name="keywords" content="Jack Mielke, developer, portfolio, AI, creative, projects" />
     <meta property="og:title" content={title} />
-    <meta property="og:description" content="Jack Mielke - Creative Developer & AI Whisperer. Explore my projects, writing, and work." />
+    <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://jackmielke.com" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:creator" content="@mielke_jack" />
+    <meta name="twitter:image" content={image} />
+    <meta name="twitter:image:alt" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
