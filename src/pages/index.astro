@@ -13,13 +13,6 @@ const projects = [
     featured: true
   },
   {
-    title: 'Life at the Edge',
-    url: 'https://open.substack.com/pub/jackmielke/p/life-at-the-edge',
-    description: 'Exploring the future of popup cities and nomadic living through art and community',
-    imagePath: '/Edge City Art from Life At The Edge.jpg',
-    featured: true
-  },
-  {
     title: 'OxPrep',
     url: 'http://oxprep.com',
     description: 'AI powered app for assisting college admissions into Oxford and Cambridge'
@@ -40,6 +33,13 @@ const projects = [
     description: 'A voice-controlled drawing app where the tone of your voice guides the sketch pad'
   }
 ];
+
+const featuredPost = {
+  title: 'Life at the Edge: The Future of Popup Cities',
+  url: 'https://open.substack.com/pub/jackmielke/p/life-at-the-edge',
+  description: 'Exploring how temporary communities and popup cities are reshaping the way we live, work, and connect in the digital age.',
+  imagePath: '/Edge City Art from Life At The Edge.jpg'
+};
 
 const favoriteSites = [
   { title: 'My Resume', url: 'https://jackmielke.notion.site/Jack-Mielke-f5229540843445c591b0ffbd4d3f8ba5?pvs=4' },
@@ -93,6 +93,25 @@ const favoriteSites = [
       <p class="text-lg text-[#e6d7c3]/80">
         I'm currently excited about <a href="https://open.substack.com/pub/jackmielke/p/life-at-the-edge?r=nfyht&utm_medium=ios" class="font-medium text-[#40e0d0] hover:text-[#40e0d0]/80 transition-colors duration-200">popup cities</a>, building 5+ apps a day with AI, and going all in on health. 🌞
       </p>
+    </section>
+
+    <section id="featured-post" class="mb-20">
+      <h2 class="text-3xl font-bold mb-6 text-[#e6d7c3]" data-aos="fade-up">featured article 📝</h2>
+      <a href={featuredPost.url} target="_blank" rel="noopener noreferrer" 
+        class="block p-6 rounded-lg bg-[#134e57]/30 backdrop-blur-sm hover:bg-[#134e57]/50 border border-[#134e57]/20 transition-all duration-300"
+        data-aos="fade-up">
+        <div class="flex flex-col">
+          <h3 class="text-2xl font-medium mb-3 text-[#e6d7c3]">{featuredPost.title}</h3>
+          <p class="text-[#e6d7c3]/80 mb-4 text-lg">{featuredPost.description}</p>
+          <div class="mt-2 overflow-hidden rounded-lg">
+            <img 
+              src={featuredPost.imagePath} 
+              alt="Edge City Art - Life at the Edge" 
+              class="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+        </div>
+      </a>
     </section>
 
     <section id="projects" class="mb-20">
