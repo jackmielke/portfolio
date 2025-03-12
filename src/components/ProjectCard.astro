@@ -3,14 +3,26 @@ interface Props {
   title: string;
   url: string;
   description?: string;
+  imagePath?: string;
 }
 
-const { title, url, description } = Astro.props;
+const { title, url, description, imagePath } = Astro.props;
 ---
 
 <a href={url} target="_blank" rel="noopener noreferrer" 
   class="block p-4 rounded-lg bg-[#134e57]/30 backdrop-blur-sm hover:bg-[#134e57]/50 border border-[#134e57]/20 transition-all duration-300"
   data-aos="fade-up">
-  <h3 class="text-xl font-medium mb-2 text-[#e6d7c3]">{title}</h3>
-  {description && <p class="text-[#e6d7c3]/80">{description}</p>}
+  <div class="flex flex-col">
+    <h3 class="text-xl font-medium mb-2 text-[#e6d7c3]">{title}</h3>
+    {description && <p class="text-[#e6d7c3]/80 mb-3">{description}</p>}
+    {imagePath && (
+      <div class="mt-2 overflow-hidden rounded-md">
+        <img 
+          src={imagePath} 
+          alt={`${title} project screenshot`} 
+          class="w-full h-auto object-contain"
+        />
+      </div>
+    )}
+  </div>
 </a>
