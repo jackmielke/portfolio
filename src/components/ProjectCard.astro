@@ -1,10 +1,7 @@
 ---
-interface Props {
-  title: string;
-  url: string;
-  description?: string;
-  imagePath?: string;
-}
+import type { Project } from '../data/projects';
+
+type Props = Project;
 
 const { title, url, description, imagePath } = Astro.props;
 ---
