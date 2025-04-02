@@ -13,26 +13,31 @@ export const projects: Project[] = [
     url: 'https://flowphangan.com/',
     description: 'A tropical paradise for AI Builders in Thailand - Creating a vibrant community of digital nomads and entrepreneurs',
     imagePath: '/IMG_7992.jpg',
-    featured: true
+    featured: true,
+    showIframe: false
   },
   {
     title: 'OxPrep',
     url: 'http://oxprep.com',
-    description: 'AI powered app for assisting college admissions into Oxford and Cambridge'
+    description: 'AI powered app for assisting college admissions into Oxford and Cambridge',
+    showIframe: true
   },
   {
     title: 'Bitcoin Explained',
     url: 'https://bitcoin-explained-by.replit.app/',
-    description: 'A creative exploration of Bitcoin\'s proof of work through a beautiful web experience'
+    description: 'A creative exploration of Bitcoin\'s proof of work through a beautiful web experience',
+    showIframe: true
   },
   {
     title: 'Muppet Memory',
     url: 'https://muppet-memory.replit.app/',
-    description: 'A playful memory card game featuring Muppets from Mars College - Test your memory and meet the characters!'
+    description: 'A playful memory card game featuring Muppets from Mars College - Test your memory and meet the characters!',
+    showIframe: true
   },
   {
     title: 'Voice a Sketch',
     url: 'https://vocal-eyez.replit.app/',
-    description: 'A voice-controlled drawing app where the tone of your voice guides the sketch pad'
+    description: 'A voice-controlled drawing app where the tone of your voice guides the sketch pad',
+    showIframe: true
   }
 ]; 
