@@ -14,12 +14,6 @@ export const projects: Project[] = [
     description: 'A tropical paradise for AI Builders in Thailand - Creating a vibrant community of digital nomads and entrepreneurs',
     imagePath: '/IMG_7992.jpg',
     featured: true,
-    showIframe: false
-  },
-  {
-    title: 'OxPrep',
-    url: 'http://oxprep.com',
-    description: 'AI powered app for assisting college admissions into Oxford and Cambridge',
     showIframe: true
   },
   {

@@ -4,10 +4,10 @@ import type { Project } from '../data/projects';
 type Props = Project;
 
 const { title, url, description, imagePath, showIframe } = Astro.props;
+const defaultImagePath = '/project-placeholder.jpg';
 ---
 
-<a href={url} target="_blank" rel="noopener noreferrer" 
-  class="group block p-4 rounded-lg bg-[#134e57]/30 backdrop-blur-sm hover:bg-[#134e57]/50 border border-[#134e57]/20 transition-all duration-300 h-full"
+<div class="group block p-4 rounded-lg bg-[#134e57]/30 backdrop-blur-sm hover:bg-[#134e57]/50 border border-[#134e57]/20 transition-all duration-300 h-full"
   data-aos="fade-up">
   <div class="flex flex-col h-full">
     <div class="mb-4">
@@ -16,46 +16,94 @@ const { title, url, description, imagePath, showIframe } = Astro.props;
     </div>
     
     <div class="mt-auto w-full">
-      <div class="relative w-full aspect-video rounded-md overflow-hidden group/preview">
+      <div class="relative w-full aspect-video rounded-md overflow-hidden">
         {showIframe ? (
-          <iframe
-            src={url}
-            class="w-full h-full border-0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            loading="lazy"
-          />
+          <div class="relative w-full h-full">
+            <iframe
+              src={url}
+              class="w-full h-full border-0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              loading="lazy"
+            />
+            <!-- Small expand button in the corner -->
+            <a 
+              href={url} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="absolute top-2 right-2 p-1 rounded-full bg-[#134e57]/80 hover:bg-[#134e57] transition-colors duration-200 z-10"
+              title="Open in new window"
+            >
+              <svg 
+                class="w-4 h-4 text-[#40e0d0]" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path 
+                  stroke-linecap="round" 
+                  stroke-linejoin="round" 
+                  stroke-width="2" 
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
+              </svg>
+            </a>
+          </div>
         ) : imagePath ? (
-          <img 
-            src={imagePath} 
-            alt={`${title} project screenshot`} 
-            class="w-full h-full object-cover"
-          />
+          <div class="relative">
+            <img 
+              src={imagePath} 
+              alt={`${title} project screenshot`} 
+              class="w-full h-full object-cover"
+            />
+            <a 
+              href={url} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="absolute top-2 right-2 p-1 rounded-full bg-[#134e57]/80 hover:bg-[#134e57] transition-colors duration-200"
+              title="Open in new window"
+            >
+              <svg 
+                class="w-4 h-4 text-[#40e0d0]" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path 
+                  stroke-linecap="round" 
+                  stroke-linejoin="round" 
+                  stroke-width="2" 
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
+              </svg>
+            </a>
+          </div>
         ) : (
-          <div class="w-full h-full bg-[#134e57]/50 flex items-center justify-center">
-            <span class="text-[#e6d7c3]/50">Preview not available</span>
+          <div class="w-full h-full bg-[#134e57]/50 flex items-center justify-center overflow-hidden">
+            <span class="text-[#e6d7c3]/50">Visit Project</span>
+            <a 
+              href={url} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="absolute top-2 right-2 p-1 rounded-full bg-[#134e57]/80 hover:bg-[#134e57] transition-colors duration-200"
+              title="Open in new window"
+            >
+              <svg 
+                class="w-4 h-4 text-[#40e0d0]" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path 
+                  stroke-linecap="round" 
+                  stroke-linejoin="round" 
+                  stroke-width="2" 
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
+              </svg>
+            </a>
           </div>
         )}
-        
-        <!-- Expand overlay -->
-        <div class="absolute inset-0 bg-[#134e57]/80 opacity-0 group-hover/preview:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-          <div class="transform translate-y-4 group-hover/preview:translate-y-0 transition-transform duration-300 flex items-center gap-2">
-            <svg 
-              class="w-8 h-8 text-[#40e0d0]" 
-              fill="none" 
-              stroke="currentColor" 
-              viewBox="0 0 24 24"
-            >
-              <path 
-                stroke-linecap="round" 
-                stroke-linejoin="round" 
-                stroke-width="2" 
-                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-              />
-            </svg>
-            <span class="text-[#40e0d0] font-medium">Open Project</span>
-          </div>
-        </div>
       </div>
     </div>
   </div>
-</a>
+</div>
