@@ -33,5 +33,12 @@ export const projects: Project[] = [
     url: 'https://vocal-eyez.replit.app/',
     description: 'A voice-controlled drawing app where the tone of your voice guides the sketch pad',
     showIframe: true
+  },
+  {
+    title: 'AI.JackMielke.com',
+    url: 'https://ai.jackmielke.com/',
+    description: 'My experimental AI playground - The chaotic, nerdy version of my personal website where I test and showcase various AI experiments',
+    showIframe: true,
+    featured: true
   }
 ]; 

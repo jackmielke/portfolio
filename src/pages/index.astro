@@ -5,6 +5,9 @@ import SocialLink from '../components/SocialLink.astro';
 import Navigation from '../components/Navigation.astro';
 import { projects } from '../data/projects';
 
+const initialProjects = projects.slice(0, 4);
+const remainingProjects = projects.slice(4);
+
 const featuredPost = {
   title: 'Life at the Edge',
   url: 'https://open.substack.com/pub/jackmielke/p/life-at-the-edge',
@@ -69,10 +72,32 @@ const favoriteSites = [
     <section id="projects" class="mb-24" data-aos="fade-up">
       <h2 class="text-3xl font-bold mb-8 text-[#e6d7c3]">my projects 🧑‍🍳</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {projects.map(project => (
+        {initialProjects.map(project => (
           <ProjectCard {...project} />
         ))}
       </div>
+      
+      <div id="moreProjects" class="hidden mt-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+          {remainingProjects.map(project => (
+            <ProjectCard {...project} />
+          ))}
+        </div>
+      </div>
+      
+      {remainingProjects.length > 0 && (
+        <div class="mt-8 flex justify-center">
+          <button 
+            id="seeMoreBtn" 
+            class="px-6 py-3 bg-[#134e57]/50 hover:bg-[#134e57]/70 text-[#e6d7c3] rounded-lg transition-colors duration-300 flex items-center gap-2 border border-[#134e57]/30"
+          >
+            <span>See More Projects</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+        </div>
+      )}
     </section>
 
     <section id="writing" class="mb-24" data-aos="fade-up">
@@ -160,3 +185,51 @@ const favoriteSites = [
     text-shadow: 0 1px 2px rgba(0,0,0,0.1);
   }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Mobile menu toggle
+    const menuButton = document.getElementById('menuButton');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    if (menuButton && mobileMenu) {
+      menuButton.addEventListener('click', () => {
+        if (mobileMenu.classList.contains('scale-0')) {
+          mobileMenu.classList.remove('scale-0', 'opacity-0');
+          mobileMenu.classList.add('scale-100', 'opacity-100');
+        } else {
+          mobileMenu.classList.remove('scale-100', 'opacity-100');
+          mobileMenu.classList.add('scale-0', 'opacity-0');
+        }
+      });
+    }
+    
+    // See More Projects toggle
+    const seeMoreBtn = document.getElementById('seeMoreBtn');
+    const moreProjects = document.getElementById('moreProjects');
+    
+    if (seeMoreBtn && moreProjects) {
+      seeMoreBtn.addEventListener('click', () => {
+        if (moreProjects.classList.contains('hidden')) {
+          moreProjects.classList.remove('hidden');
+          seeMoreBtn.innerHTML = `
+            <span>Show Less</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+            </svg>
+          `;
+        } else {
+          moreProjects.classList.add('hidden');
+          seeMoreBtn.innerHTML = `
+            <span>See More Projects</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          `;
+          // Scroll back to the projects section when hiding
+          document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    }
+  });
+</script>
