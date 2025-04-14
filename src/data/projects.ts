@@ -17,6 +17,13 @@ export const projects: Project[] = [
     showIframe: true
   },
   {
+    title: 'AI Monkey',
+    url: 'https://ai.flowphangan.com/',
+    description: 'An evolving community AI agent that maintains a shared knowledge base, manages events via Google Calendar, and interacts through Telegram - Building collective intelligence for Flow Phangan',
+    showIframe: true,
+    featured: true
+  },
+  {
     title: 'Bitcoin Explained',
     url: 'https://bitcoin-explained-by.replit.app/',
     description: 'A creative exploration of Bitcoin\'s proof of work through a beautiful web experience',
