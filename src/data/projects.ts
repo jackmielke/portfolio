@@ -19,7 +19,7 @@ export const projects: Project[] = [
   {
     title: 'AI Monkey',
     url: 'https://ai.flowphangan.com/',
-    description: 'An evolving community AI agent that maintains a shared knowledge base, manages events via Google Calendar, and interacts through Telegram - Building collective intelligence for Flow Phangan',
+    description: 'An evolving community AI agent that maintains a shared knowledge base, manages events via Google Calendar, and interacts through Telegram',
     showIframe: true,
     featured: true
   },

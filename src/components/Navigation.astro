@@ -6,7 +6,7 @@ const menuItems = [
 ];
 ---
 
-<div class="fixed top-0 left-0 right-0 z-50 px-6 py-4 backdrop-blur-sm bg-[#0d1b1e]/70">
+<div id="navbar" class="fixed top-0 left-0 right-0 z-50 px-6 py-4 backdrop-blur-sm transition-all duration-300">
   <div class="max-w-3xl mx-auto flex justify-between items-center">
     <!-- Peace sign home button -->
     <a href="#" class="text-2xl hover:opacity-80 transition-opacity">✌️</a>
@@ -63,9 +63,24 @@ const menuItems = [
 </div>
 
 <script>
+  const navbar = document.getElementById('navbar');
   const menuButton = document.getElementById('menuButton');
   const mobileMenu = document.getElementById('mobileMenu');
   let isOpen = false;
+
+  // Handle navbar background on scroll
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      navbar?.classList.add('bg-[#0d1b1e]/70');
+    } else {
+      navbar?.classList.remove('bg-[#0d1b1e]/70');
+    }
+  });
+
+  // Initialize navbar background based on initial scroll position
+  if (window.scrollY > 20) {
+    navbar?.classList.add('bg-[#0d1b1e]/70');
+  }
 
   menuButton?.addEventListener('click', () => {
     isOpen = !isOpen;
