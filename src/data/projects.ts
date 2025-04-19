@@ -24,6 +24,13 @@ export const projects: Project[] = [
     featured: true
   },
   {
+    title: 'Taste',
+    url: 'https://taste-with-a.lovable.app/',
+    description: 'An experimental exploration into digital taste experiences, blending art, writing, and creativity with AI',
+    showIframe: true,
+    featured: true
+  },
+  {
     title: 'Bitcoin Explained',
     url: 'https://bitcoin-explained-by.replit.app/',
     description: 'A creative exploration of Bitcoin\'s proof of work through a beautiful web experience',
