@@ -1,0 +1,195 @@
+---
+interface Tool {
+  name: string;
+  description: string;
+  logo?: string;
+}
+
+const tools: Tool[] = [
+  {
+    name: "Lovable.dev",
+    description: "The quickest way I've found to ship gorgeous, responsive sites—no boilerplate, just vibes.",
+    logo: "/placeholder-logo.svg"
+  },
+  {
+    name: "n8n",
+    description: "My master switchboard for AI systems: webhooks in, LLM calls out, everything wired in one canvas.",
+    logo: "/placeholder-logo.svg"
+  },
+  {
+    name: "Replit",
+    description: "Spin-up-and-ship playground—code, test, and push live before the coffee cools.",
+    logo: "/placeholder-logo.svg"
+  },
+  {
+    name: "Cursor",
+    description: "My everyday editor that finishes my code, suggests fixes, and keeps me in flow for the heavy logic.",
+    logo: "/placeholder-logo.svg"
+  },
+  {
+    name: "Airtable",
+    description: "Where all my transcripts, events, and knowledge live—relational enough to stay tidy, visual enough to stay fun.",
+    logo: "/placeholder-logo.svg"
+  },
+  {
+    name: "Model Context Protocol",
+    description: "Infra for the next AI era—agents that remember everything and can chat from any interface.",
+    logo: "/placeholder-logo.svg"
+  },
+  {
+    name: "Notion",
+    description: "The big-picture canvas for specs, docs, and collab; OG knowledge garden still going strong.",
+    logo: "/placeholder-logo.svg"
+  },
+  {
+    name: "VOMO",
+    description: "One-tap voice memos that feed straight into my AI pipelines—no idea gets lost.",
+    logo: "/placeholder-logo.svg"
+  },
+  {
+    name: "Tobii Eye Tracker + Talon",
+    description: "Eye-controlled cursor & voice commands—let me code pain-free after months sidelined by carpal tunnel.",
+    logo: "/placeholder-logo.svg"
+  },
+  {
+    name: "Google AI Studio",
+    description: "My sandbox for stress-testing the newest large-context models before they hit prod.",
+    logo: "/placeholder-logo.svg"
+  }
+];
+---
+
+<section id="tech-stack" class="mb-24 relative overflow-hidden" data-aos="fade-up">
+  <div class="absolute inset-0 bg-gradient-to-br from-[#134e57]/10 to-transparent rounded-3xl"></div>
+  <div class="relative">
+    <div class="flex justify-between items-center mb-8">
+      <h2 class="text-3xl font-bold text-[#e6d7c3]">my stack 🛠️</h2>
+      <button 
+        id="expandBtn"
+        class="px-4 py-2 text-sm rounded-lg bg-[#134e57]/30 text-[#e6d7c3] hover:bg-[#134e57]/50 transition-all duration-300 backdrop-blur-sm border border-[#134e57]/20"
+      >
+        see all
+      </button>
+    </div>
+
+    <!-- Sliding Container -->
+    <div class="relative">
+      <div 
+        id="toolSlider"
+        class="flex gap-4 overflow-x-auto pb-4 scrollbar-hide scroll-smooth"
+      >
+        {tools.map(tool => (
+          <div 
+            class="tool-card flex-shrink-0 w-[160px] md:w-[200px] p-4 rounded-xl bg-[#134e57]/20 hover:bg-[#134e57]/30 transition-all duration-500 backdrop-blur-md border border-[#134e57]/20 hover:border-[#134e57]/40 group"
+          >
+            <div class="flex flex-col items-center text-center gap-3">
+              <div class="w-16 h-16 rounded-xl bg-[#134e57]/30 flex items-center justify-center p-2 group-hover:scale-110 transition-transform duration-500">
+                <img 
+                  src={tool.logo}
+                  alt={`${tool.name} logo`}
+                  class="w-full h-full object-contain"
+                  onError="this.onerror=null; this.src='/placeholder-logo.svg';"
+                />
+              </div>
+              <h3 class="text-[#e6d7c3] font-medium text-sm">{tool.name}</h3>
+              <p class="text-[#e6d7c3]/70 text-xs line-clamp-3 group-hover:line-clamp-none transition-all duration-300">
+                {tool.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Grid View (Hidden by default) -->
+      <div 
+        id="toolGrid" 
+        class="hidden grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-8"
+      >
+        {tools.map(tool => (
+          <div 
+            class="tool-card p-4 rounded-xl bg-[#134e57]/20 hover:bg-[#134e57]/30 transition-all duration-500 backdrop-blur-md border border-[#134e57]/20 hover:border-[#134e57]/40 group"
+          >
+            <div class="flex flex-col items-center text-center gap-3">
+              <div class="w-16 h-16 rounded-xl bg-[#134e57]/30 flex items-center justify-center p-2 group-hover:scale-110 transition-transform duration-500">
+                <img 
+                  src={tool.logo}
+                  alt={`${tool.name} logo`}
+                  class="w-full h-full object-contain"
+                  onError="this.onerror=null; this.src='/placeholder-logo.svg';"
+                />
+              </div>
+              <h3 class="text-[#e6d7c3] font-medium text-sm">{tool.name}</h3>
+              <p class="text-[#e6d7c3]/70 text-xs">
+                {tool.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  @keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const expandBtn = document.getElementById('expandBtn');
+    const toolSlider = document.getElementById('toolSlider');
+    const toolGrid = document.getElementById('toolGrid');
+    let isExpanded = false;
+
+    if (expandBtn && toolSlider && toolGrid) {
+      expandBtn.addEventListener('click', () => {
+        isExpanded = !isExpanded;
+        if (isExpanded) {
+          toolSlider.style.display = 'none';
+          toolGrid.style.display = 'grid';
+          expandBtn.textContent = 'show less';
+        } else {
+          toolSlider.style.display = 'flex';
+          toolGrid.style.display = 'none';
+          expandBtn.textContent = 'see all';
+        }
+      });
+
+      // Auto-scroll functionality for the slider
+      let scrollInterval: number;
+      const startAutoScroll = () => {
+        scrollInterval = setInterval(() => {
+          if (toolSlider.scrollLeft + toolSlider.clientWidth >= toolSlider.scrollWidth) {
+            toolSlider.scrollLeft = 0;
+          } else {
+            toolSlider.scrollLeft += 1;
+          }
+        }, 30);
+      };
+
+      const stopAutoScroll = () => {
+        clearInterval(scrollInterval);
+      };
+
+      toolSlider.addEventListener('mouseenter', stopAutoScroll);
+      toolSlider.addEventListener('mouseleave', startAutoScroll);
+
+      startAutoScroll();
+    }
+  });
+</script> 

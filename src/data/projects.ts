@@ -17,9 +17,16 @@ export const projects: Project[] = [
     showIframe: true
   },
   {
-    title: 'AI Monkey',
+    title: 'AI Flow',
     url: 'https://ai.flowphangan.com/',
-    description: 'An evolving community AI agent that maintains a shared knowledge base, manages events via Google Calendar, and interacts through Telegram',
+    description: 'An evolving community AI agent (Flow Monkey) that maintains a shared knowledge base, manages events via Google Calendar, and interacts through Telegram',
+    showIframe: true,
+    featured: true
+  },
+  {
+    title: 'LLM Playground',
+    url: 'https://llm-playground.replit.app/',
+    description: 'An interactive platform to test and compare different large language models, featuring community voting and a living history of Q&As - Always up-to-date with the latest LLMs',
     showIframe: true,
     featured: true
   },
